@@ -59,7 +59,9 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/",
-            "MartenaSoft\\Site\\" : "martenasoft/site/src/"
+            "MartenaSoft\\Menu\\" : "martenasoft/menu/src/",
+            "MartenaSoft\\Site\\" : "martenasoft/site/src/",
+            "MartenaSoft\\Common\\" : "martenasoft/common/src/"
         }
     },
     "autoload-dev": {
