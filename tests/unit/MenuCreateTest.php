@@ -11,15 +11,13 @@ use Doctrine\ORM\EntityManagerInterface;
 use MartenaSoft\Menu\Entity\Menu;
 use MartenaSoft\Menu\Repository\MenuRepository;
 
-class MenuTest extends Unit
+class MenuCreateTest extends Unit
 {
-    /**
-     * @var \UnitTester
-     */
     protected $tester;
     private Symfony $symfony;
     private MenuRepository $menuRepository;
     private EntityManagerInterface $entityManager;
+
     protected function _before()
     {
         $this->symfony = $this->getModule('Symfony');
@@ -27,10 +25,8 @@ class MenuTest extends Unit
         $this->menuRepository = $this->symfony->grabService(MenuRepository::class);
     }
 
-    // tests
-    public function testCreate()
+    public function testRun()
     {
-
         $name1 = 'Test node 1';
         $name2 = 'Test node 2';
 
