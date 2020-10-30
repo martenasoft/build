@@ -15,4 +15,5 @@ return [
     MartenaSoft\Menu\MartenaSoftMenuBundle::class => ['all' => true],
     MartenaSoft\Site\MartenaSoftSiteBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
+    DAMA\DoctrineTestBundle\DAMADoctrineTestBundle::class => ['test' => true],
 ];
