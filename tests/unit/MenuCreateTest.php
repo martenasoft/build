@@ -23,6 +23,7 @@ class MenuCreateTest extends Unit
         $this->symfony = $this->getModule('Symfony');
         $this->entityManager = $this->symfony->grabService(EntityManagerInterface::class);
         $this->menuRepository = $this->symfony->grabService(MenuRepository::class);
+        $this->entityManager->getConnection()->executeQuery("truncate table menu;");
     }
 
     public function testRun()

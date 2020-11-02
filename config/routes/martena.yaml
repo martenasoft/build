@@ -1,2 +1,5 @@
+menu:
+  prefix: /menu
+  resource: '@MartenaSoftMenuBundle/Resources/config/routes/all.yaml'
 site:
   resource: '@MartenaSoftSiteBundle/Resources/config/routes/all.yaml'
