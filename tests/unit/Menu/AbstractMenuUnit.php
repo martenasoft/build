@@ -1,20 +1,22 @@
 <?php
 
-namespace App\Tests\unit;
+namespace App\Tests\unit\Menu;
 
-use MartenaSoft\Common\Entity\NestedSetEntityInterface;
+use App\Tests\unit\AbstractSymfonyUnit;
 use MartenaSoft\Menu\Entity\Menu;
 use MartenaSoft\Menu\Repository\MenuRepository;
 use Codeception\Util\Debug;
+
+use MartenaSoft\Menu\Repository\MenuUpDownRepository;
+use MartenaSoft\NestedSets\Entity\NodeInterface;
 
 abstract class AbstractMenuUnit extends AbstractSymfonyUnit
 {
     protected const FIRST_NODE_NAME = "Node 1.0";
     protected const TABLE_NAME = "menu";
     protected $treeId = 1;
-    private ?MenuRepository $repository = null;
 
-    abstract public function testRun();
+    abstract public function testRun(): void;
 
     abstract protected function moveAsset(): void;
 
@@ -32,10 +34,12 @@ abstract class AbstractMenuUnit extends AbstractSymfonyUnit
 
     protected function getMenuRepository(): MenuRepository
     {
-        if ($this->repository === null) {
-            $this->repository = $this->getSymfony()->grabService(MenuRepository::class);
-        }
-        return $this->repository;
+        return $this->getSymfony()->grabService(MenuRepository::class);
+    }
+
+    protected function getMenuUpDownRepository(): MenuUpDownRepository
+    {
+        return $this->getSymfony()->grabService(MenuUpDownRepository::class);
     }
 
     protected function getAllNodes(int $tree = 0): array
@@ -117,7 +121,7 @@ abstract class AbstractMenuUnit extends AbstractSymfonyUnit
         unset($str);
     }
 
-    protected function getNode(string $name, ?NestedSetEntityInterface $parent = null): NestedSetEntityInterface
+    protected function getNode(string $name, ?NodeInterface $parent = null): NodeInterface
     {
         $menuNode = $this->getMenuRepository()->get($name);
         if (!empty($parent)) {
