@@ -7,7 +7,7 @@ use MartenaSoft\Menu\Entity\Menu;
 use MartenaSoft\Menu\Repository\MenuRepository;
 use Codeception\Util\Debug;
 
-use MartenaSoft\Menu\Repository\MenuUpDownRepository;
+use MartenaSoft\Menu\Repository\MenuUpDownRepositoryNestedSets;
 use MartenaSoft\NestedSets\Entity\NodeInterface;
 
 abstract class AbstractMenuUnit extends AbstractSymfonyUnit
@@ -15,6 +15,7 @@ abstract class AbstractMenuUnit extends AbstractSymfonyUnit
     protected const FIRST_NODE_NAME = "Node 1.0";
     protected const TABLE_NAME = "menu";
     protected $treeId = 1;
+    protected array $assetItemsArray = [];
 
     abstract public function testRun(): void;
 
@@ -37,9 +38,9 @@ abstract class AbstractMenuUnit extends AbstractSymfonyUnit
         return $this->getSymfony()->grabService(MenuRepository::class);
     }
 
-    protected function getMenuUpDownRepository(): MenuUpDownRepository
+    protected function getMenuUpDownRepository(): MenuUpDownRepositoryNestedSets
     {
-        return $this->getSymfony()->grabService(MenuUpDownRepository::class);
+        return $this->getSymfony()->grabService(MenuUpDownRepositoryNestedSets::class);
     }
 
     protected function getAllNodes(int $tree = 0): array
@@ -52,12 +53,23 @@ abstract class AbstractMenuUnit extends AbstractSymfonyUnit
         return $this->getEntityManager()->getConnection()->fetchAll($sql);
     }
 
-    protected function assetItem(int $lft, int $rgt, int $lvl, int $parentId, array $item): void
+    protected function assetItem_(int $lft, int $rgt, int $lvl, int $parentId, array $item): void
     {
         $this->assertEquals($item['lft'], $lft, "Lft: ({$item['lft']} != $lft)");
         $this->assertEquals($item['rgt'], $rgt, "Rgt: ({$item['rgt']} != $rgt)");
         $this->assertEquals($item['lvl'], $lvl, "Lvl: ({$item['lvl']} != $lvl)");
         $this->assertEquals($item['parent_id'], $parentId, "ParentId: ({$item['parent_id']} != $parentId)");
+    }
+
+    protected function assetItem(array $fields): void
+    {
+        $this->assertNotEmpty($this->assetItemsArray);
+        $assetArrayItem = array_shift($this->assetItemsArray);
+        foreach ($fields as $key => $item) {
+            if (isset($assetArrayItem[$key])) {
+                $this->assertEquals($assetArrayItem[$key], $item, "{$key}: {$assetArrayItem[$key]} != $item");
+            }
+        }
     }
 
     /*
@@ -96,7 +108,7 @@ abstract class AbstractMenuUnit extends AbstractSymfonyUnit
     private function assetsInitedNodes(): void
     {
         $items = $this->getAllNodes();
-        $this->assetItem(1, 22, 1, 0, $items[0]);
+       /* $this->assetItem(1, 22, 1, 0, $items[0]);
         $this->assetItem(2, 7, 2, 1, $items[1]);
         $this->assetItem(3, 4, 3, 2, $items[2]);
         $this->assetItem(5, 6, 3, 2, $items[3]);
@@ -106,16 +118,26 @@ abstract class AbstractMenuUnit extends AbstractSymfonyUnit
         $this->assetItem(12, 13, 4, 7, $items[7]);
         $this->assetItem(15, 20, 3, 6, $items[8]);
         $this->assetItem(16, 17, 4, 8, $items[9]);
-        $this->assetItem(18, 19, 4, 8, $items[10]);
+        $this->assetItem(18, 19, 4, 8, $items[10]);*/
 
     }
 
     protected function initAssets(array $items): void
     {
-        $str = "\n";
+        $str = "\$this->assetItemsArray = \$items;\n";
         foreach ($items as $i => $item)
         {
-            $str .= "\$this->assetItem({$item['lft']}, {$item['rgt']}, {$item['lvl']}, {$item['parent_id']}, \$items[$i]);\n";
+            if (!isset($item['parent_id']) && isset($item['parentId'])) {
+                $item['parent_id'] = $item['parentId'];
+            }
+
+            $arg = '';
+            foreach ($item as $key=>$value) {
+                $arg .= (!empty($arg) ? ',' : '')."'$key'=>".(is_numeric($value) ? $value : "'$value'");
+            }
+
+            $str .= "\$this->assetItem([$arg]);\n";
+           // $str .= "\$this->assetItem({$item['lft']}, {$item['rgt']}, {$item['lvl']}, {$item['parent_id']}, \$items[$i]);\n";
         }
         print $str;
         unset($str);
