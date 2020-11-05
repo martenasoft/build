@@ -8,7 +8,7 @@ class MoveUpToBottomTest extends AbstractMoveUpDown
 
     protected function moveTo(): void
     {
-        $this->getMenuUpDownRepository()->up($this->firstNode);
+        $this->getMenuRepository()->change($this->firstNode);
     }
 
     protected function moveAsset(): void

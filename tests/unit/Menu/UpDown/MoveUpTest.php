@@ -13,6 +13,7 @@ class MoveUpTest extends AbstractMoveUpDown
 
     protected function moveAsset(): void
     {
+       // dump($this->getAllNodes()); die;
         $this->assetItem(
             [
                 'id' => 2,
@@ -21,7 +22,6 @@ class MoveUpTest extends AbstractMoveUpDown
                 'rgt' => 22,
                 'lvl' => 1,
                 'tree' => 1,
-                'parentId' => 0,
                 'parent_id' => 0
             ]
         );
@@ -33,7 +33,6 @@ class MoveUpTest extends AbstractMoveUpDown
                 'rgt' => 7,
                 'lvl' => 2,
                 'tree' => 1,
-                'parentId' => 2,
                 'parent_id' => 2
             ]
         );
@@ -45,7 +44,6 @@ class MoveUpTest extends AbstractMoveUpDown
                 'rgt' => 4,
                 'lvl' => 3,
                 'tree' => 1,
-                'parentId' => 1,
                 'parent_id' => 1
             ]
         );
@@ -57,7 +55,6 @@ class MoveUpTest extends AbstractMoveUpDown
                 'rgt' => 6,
                 'lvl' => 3,
                 'tree' => 1,
-                'parentId' => 1,
                 'parent_id' => 1
             ]
         );
@@ -69,7 +66,6 @@ class MoveUpTest extends AbstractMoveUpDown
                 'rgt' => 9,
                 'lvl' => 2,
                 'tree' => 1,
-                'parentId' => 2,
                 'parent_id' => 2
             ]
         );
@@ -81,7 +77,6 @@ class MoveUpTest extends AbstractMoveUpDown
                 'rgt' => 21,
                 'lvl' => 2,
                 'tree' => 1,
-                'parentId' => 2,
                 'parent_id' => 2
             ]
         );
@@ -93,7 +88,6 @@ class MoveUpTest extends AbstractMoveUpDown
                 'rgt' => 14,
                 'lvl' => 3,
                 'tree' => 1,
-                'parentId' => 6,
                 'parent_id' => 6
             ]
         );
@@ -105,7 +99,6 @@ class MoveUpTest extends AbstractMoveUpDown
                 'rgt' => 13,
                 'lvl' => 4,
                 'tree' => 1,
-                'parentId' => 7,
                 'parent_id' => 7
             ]
         );
@@ -117,7 +110,6 @@ class MoveUpTest extends AbstractMoveUpDown
                 'rgt' => 20,
                 'lvl' => 3,
                 'tree' => 1,
-                'parentId' => 6,
                 'parent_id' => 6
             ]
         );
@@ -129,7 +121,6 @@ class MoveUpTest extends AbstractMoveUpDown
                 'rgt' => 17,
                 'lvl' => 4,
                 'tree' => 1,
-                'parentId' => 8,
                 'parent_id' => 8
             ]
         );
@@ -141,7 +132,6 @@ class MoveUpTest extends AbstractMoveUpDown
                 'rgt' => 19,
                 'lvl' => 4,
                 'tree' => 1,
-                'parentId' => 8,
                 'parent_id' => 8
             ]
         );

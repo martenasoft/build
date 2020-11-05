@@ -3,6 +3,7 @@
 namespace App\Tests\unit\Menu;
 
 use App\Tests\unit\AbstractMenuUnit;
+use App\Tests\unit\Menu\Move\AbstractMoveMenu;
 use Codeception\Util\Debug;
 
 /*------------------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use Codeception\Util\Debug;
 * ------------------------------------------------------------------------------------
 */
 
-class MenuMoveRightToCenterTest extends AbstractMenuUnit
+class MenuMoveRightToCenterTest extends AbstractMoveMenu
 {
     /* id: lft.rgt :lvl :parent_id
      *  move every right nodes under the middle column
