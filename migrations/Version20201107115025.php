@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20201106085432 extends AbstractMigration
+final class Version20201107115025 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -20,12 +20,14 @@ final class Version20201106085432 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE config DROP menu');
+        $this->addSql('ALTER TABLE config ADD descriptions LONGTEXT DEFAULT NULL');
+        $this->addSql('ALTER TABLE menu DROP descriptions');
     }
 
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE config ADD menu VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT NULL COLLATE `utf8mb4_unicode_ci`');
+        $this->addSql('ALTER TABLE config DROP descriptions');
+        $this->addSql('ALTER TABLE menu ADD descriptions LONGTEXT CHARACTER SET utf8mb4 DEFAULT NULL COLLATE `utf8mb4_unicode_ci`');
     }
 }
