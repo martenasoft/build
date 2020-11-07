@@ -1,4 +1,6 @@
 $primary: darken(#428bca, 20%);
 
 // the ~ allows you to reference things in node_modules
+//https://coreui.io/docs/components/bootstrap/icons/#coreui-icons-free-502-icons
+@import "~@coreui/icons";
 @import "~bootstrap/scss/bootstrap";
