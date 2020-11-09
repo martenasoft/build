@@ -1,3 +1,6 @@
+common:
+  prefix: /common
+  resource: '@MartenaSoftCommonBundle/Resources/config/routes/all.yaml'
 menu:
   prefix: /menu
   resource: '@MartenaSoftMenuBundle/Resources/config/routes/all.yaml'
