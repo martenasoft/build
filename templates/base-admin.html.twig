@@ -39,20 +39,29 @@
 
 </nav>
 
+<div class="row">
+    <div class="col-12"></div>
+    <div class="col-2">
+        <div>
+            {{ render(controller('MartenaSoft\\Menu\\Controller\\MenuController::vertical', {
+                request: app.request,
+                name:'test 1'
+            })) }}
+        </div>
+    </div>
+    <div class="col-8">
+        <h1>{% block h1 %}{% endblock %}</h1>
 
-<div>
-    {{ render(controller('MartenaSoft\\Menu\\Controller\\MenuController::vertical', {name:'test 1'})) }}
+        {% include '@MartenaSoftCommon/common/flash_message.html.twig' %}
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </div>
+    <div class="2"></div>
 </div>
 
-<div class="example-wrapper">
-    {% include '@MartenaSoftCommon/common/flash_message.html.twig' %}
 
-    <h1>{% block h1 %}{% endblock %}</h1>
-
-    {% block body %}{% endblock %}
-</div>
-{% block javascripts %}
-    {{ encore_entry_script_tags('app') }}
-{% endblock %}
 </body>
 </html>
