@@ -71,6 +71,7 @@
             "MartenaSoft\\Site\\" : "martenasoft/site/src/",
             "MartenaSoft\\Common\\" : "martenasoft/common/src/",
             "MartenaSoft\\NestedSets\\" : "martenasoft/nestedsets/src/",
+            "MartenaSoft\\Content\\" : "martenasoft/content/src/",
             "MartenaSoft\\Seo\\" : "martenasoft/seo/src/"
         }
     },

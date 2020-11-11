@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\unit\Menu\Move;
 
 use App\Tests\unit\AbstractMenuUnit;
 use App\Tests\unit\Menu\Move\AbstractMoveMenu;
