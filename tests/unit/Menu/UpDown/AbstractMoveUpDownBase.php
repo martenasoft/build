@@ -6,7 +6,7 @@ use App\Tests\unit\Menu\AbstractMenuUnit;
 use App\Tests\unit\Menu\HelperMenuTrait;
 use MartenaSoft\NestedSets\Entity\NodeInterface;
 
-abstract class AbstractMoveUpDown extends AbstractMenuUnit
+abstract class AbstractMoveUpDownBase extends AbstractMenuUnit
 {
     use HelperMenuTrait;
 

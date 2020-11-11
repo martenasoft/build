@@ -19,23 +19,23 @@ trait HelperMenuTrait
     *                                  /                 /         \
     *                              1.5.1 (12.13)    1.5.2 (16.17)  1.5.3 (18.19)
     */
-    protected function initMenu(): void
+    protected function initMenu(int $tree = 1): void
     {
-        $node1_0 = $this->getNode(self::FIRST_NODE_NAME);
+        $node1_0 = $this->getNode(self::FIRST_NODE_NAME, null, $tree);
 
-        $node1_2_0 = $this->getNode("Node 1.2.0", $node1_0);
-        $node1_2_1 = $this->getNode("Node 1.2.1", $node1_2_0);
-        $node1_2_2 = $this->getNode("Node 1.2.2", $node1_2_0);
+        $node1_2_0 = $this->getNode("Node 1.2.0", $node1_0, $tree);
+        $node1_2_1 = $this->getNode("Node 1.2.1", $node1_2_0, $tree);
+        $node1_2_2 = $this->getNode("Node 1.2.2", $node1_2_0, $tree);
 
-        $node1_3_0 = $this->getNode("Node 1.3.0", $node1_0);
-        $node1_4_0 = $this->getNode("Node 1.4.0", $node1_0);
+        $node1_3_0 = $this->getNode("Node 1.3.0", $node1_0, $tree);
+        $node1_4_0 = $this->getNode("Node 1.4.0", $node1_0, $tree);
 
-        $node1_4_1 = $this->getNode("Node 1.4.1", $node1_4_0);
-        $node1_4_2 = $this->getNode("Node 1.4.2", $node1_4_0);
+        $node1_4_1 = $this->getNode("Node 1.4.1", $node1_4_0, $tree);
+        $node1_4_2 = $this->getNode("Node 1.4.2", $node1_4_0, $tree);
 
-        $node1_5_1 = $this->getNode("Node 1.5.1", $node1_4_1);
-        $node1_5_2 = $this->getNode("Node 1.5.2", $node1_4_2);
-        $node1_5_3 = $this->getNode("Node 1.5.3", $node1_4_2);
+        $node1_5_1 = $this->getNode("Node 1.5.1", $node1_4_1, $tree);
+        $node1_5_2 = $this->getNode("Node 1.5.2", $node1_4_2, $tree);
+        $node1_5_3 = $this->getNode("Node 1.5.3", $node1_4_2, $tree);
 
 
         $assetItemsArray = $this->getAllNodes();
@@ -170,9 +170,9 @@ trait HelperMenuTrait
         return $this->getEntityManager()->getConnection()->fetchAll($sql);
     }
 
-    protected function getNode(string $name, ?NodeInterface $parent = null): NodeInterface
+    protected function getNode(string $name, ?NodeInterface $parent = null, int $tree = 1): NodeInterface
     {
-        $menuNode = $this->getMenuRepository()->findOneByName($name);
+        $menuNode = $this->getMenuRepository()->findOneBy(['name'=>$name, 'tree'=>$tree]);
         if (!empty($parent)) {
             $this->getEntityManager()->refresh($parent);
         }
@@ -180,6 +180,7 @@ trait HelperMenuTrait
         if (empty($menuNode)) {
             $menuNode = new Menu();
             $menuNode->setName($name);
+            $menuNode->setTree($tree);
         }
         $node = $this->getMenuRepository()->create($menuNode, $parent);
         return $node;

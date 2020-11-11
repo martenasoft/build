@@ -53,4 +53,5 @@ class MenuCreateTest extends AbstractCreateDelete
             'parent_id' => 1
         ]);
     }
+
 }

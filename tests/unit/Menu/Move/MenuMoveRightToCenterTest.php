@@ -45,20 +45,151 @@ class MenuMoveRightToCenterTest extends AbstractMoveMenu
 
     protected function moveAsset(): void
     {
-        $items = $this->getAllNodes();
+        $this->assetItemsArray = $this->getAllNodes();
+        $this->assetItem([
+            'id' => 1,
+            'config_id' => '',
+            'name' => 'Node 1.0',
+            'lft' => 1,
+            'rgt' => 22,
+            'lvl' => 1,
+            'tree' => 1,
+            'parent_id' => 0,
+            'is_deleted' => 0,
+            'route' => '',
+            'url' => ''
+        ]);
+        $this->assetItem([
+            'id' => 2,
+            'config_id' => '',
+            'name' => 'Node 1.2.0',
+            'lft' => 2,
+            'rgt' => 7,
+            'lvl' => 2,
+            'tree' => 1,
+            'parent_id' => 1,
+            'is_deleted' => 0,
+            'route' => '',
+            'url' => ''
+        ]);
+        $this->assetItem([
+            'id' => 3,
+            'config_id' => '',
+            'name' => 'Node 1.2.1',
+            'lft' => 3,
+            'rgt' => 4,
+            'lvl' => 3,
+            'tree' => 1,
+            'parent_id' => 2,
+            'is_deleted' => 0,
+            'route' => '',
+            'url' => ''
+        ]);
+        $this->assetItem([
+            'id' => 4,
+            'config_id' => '',
+            'name' => 'Node 1.2.2',
+            'lft' => 5,
+            'rgt' => 6,
+            'lvl' => 3,
+            'tree' => 1,
+            'parent_id' => 2,
+            'is_deleted' => 0,
+            'route' => '',
+            'url' => ''
+        ]);
+        $this->assetItem([
+            'id' => 5,
+            'config_id' => '',
+            'name' => 'Node 1.3.0',
+            'lft' => 8,
+            'rgt' => 21,
+            'lvl' => 2,
+            'tree' => 1,
+            'parent_id' => 1,
+            'is_deleted' => 0,
+            'route' => '',
+            'url' => ''
+        ]);
+        $this->assetItem([
+            'id' => 6,
+            'config_id' => '',
+            'name' => 'Node 1.4.0',
+            'lft' => 9,
+            'rgt' => 20,
+            'lvl' => 3,
+            'tree' => 1,
+            'parent_id' => 5,
+            'is_deleted' => 0,
+            'route' => '',
+            'url' => ''
+        ]);
+        $this->assetItem([
+            'id' => 7,
+            'config_id' => '',
+            'name' => 'Node 1.4.1',
+            'lft' => 10,
+            'rgt' => 13,
+            'lvl' => 4,
+            'tree' => 1,
+            'parent_id' => 6,
+            'is_deleted' => 0,
+            'route' => '',
+            'url' => ''
+        ]);
+        $this->assetItem([
+            'id' => 9,
+            'config_id' => '',
+            'name' => 'Node 1.5.1',
+            'lft' => 11,
+            'rgt' => 12,
+            'lvl' => 5,
+            'tree' => 1,
+            'parent_id' => 7,
+            'is_deleted' => 0,
+            'route' => '',
+            'url' => ''
+        ]);
+        $this->assetItem([
+            'id' => 8,
+            'config_id' => '',
+            'name' => 'Node 1.4.2',
+            'lft' => 14,
+            'rgt' => 19,
+            'lvl' => 4,
+            'tree' => 1,
+            'parent_id' => 6,
+            'is_deleted' => 0,
+            'route' => '',
+            'url' => ''
+        ]);
+        $this->assetItem([
+            'id' => 10,
+            'config_id' => '',
+            'name' => 'Node 1.5.2',
+            'lft' => 15,
+            'rgt' => 16,
+            'lvl' => 5,
+            'tree' => 1,
+            'parent_id' => 8,
+            'is_deleted' => 0,
+            'route' => '',
+            'url' => ''
+        ]);
+        $this->assetItem([
+            'id' => 11,
+            'config_id' => '',
+            'name' => 'Node 1.5.3',
+            'lft' => 17,
+            'rgt' => 18,
+            'lvl' => 5,
+            'tree' => 1,
+            'parent_id' => 8,
+            'is_deleted' => 0,
+            'route' => '',
+            'url' => ''
+        ]);
 
 
-
-        /*$this->assetItem(1, 22, 1, 0, $items[0]);
-        $this->assetItem(2, 7, 2, 1, $items[1]);
-        $this->assetItem(3, 4, 3, 2, $items[2]);
-        $this->assetItem(5, 6, 3, 2, $items[3]);
-        $this->assetItem(8, 21, 2, 1, $items[4]);
-        $this->assetItem(9, 20, 3, 5, $items[5]);
-        $this->assetItem(10, 13, 4, 6, $items[6]);
-        $this->assetItem(11, 12, 5, 7, $items[7]);
-        $this->assetItem(14, 19, 4, 6, $items[8]);
-        $this->assetItem(15, 16, 5, 8, $items[9]);
-        $this->assetItem(17, 18, 5, 8, $items[10]);*/
     }
 }
