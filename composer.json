@@ -70,7 +70,8 @@
             "MartenaSoft\\Menu\\" : "martenasoft/menu/src/",
             "MartenaSoft\\Site\\" : "martenasoft/site/src/",
             "MartenaSoft\\Common\\" : "martenasoft/common/src/",
-            "MartenaSoft\\NestedSets\\" : "martenasoft/nestedsets/src/"
+            "MartenaSoft\\NestedSets\\" : "martenasoft/nestedsets/src/",
+            "MartenaSoft\\Seo\\" : "martenasoft/seo/src/"
         }
     },
     "autoload-dev": {
