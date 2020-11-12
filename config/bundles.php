@@ -15,6 +15,7 @@ return [
     MartenaSoft\Common\MartenaSoftCommonBundle::class => ['all' => true],
     MartenaSoft\NestedSets\MartenaSoftNestedSetsBundle::class => ['all' => true],
     MartenaSoft\Menu\MartenaSoftMenuBundle::class => ['all' => true],
+    MartenaSoft\Content\MartenaSoftContentBundle::class => ['all' => true],
     MartenaSoft\Seo\MartenaSoftSeoBundle::class => ['all' => true],
     MartenaSoft\Site\MartenaSoftSiteBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
