@@ -6,30 +6,31 @@ use App\Repository\HolderRepository;
 use App\Repository\ParseSettingRepository;
 use MartenaSoft\Menu\Entity\Menu;
 use Codeception\Util\Debug;
+use MartenaSoft\Menu\Entity\MenuInterface;
 
 class MenuCreateTest extends AbstractCreateDelete
 {
+    protected string $name1 = 'Test node 1';
+    protected string $name2 = 'Test node 2';
+
     public function testRun(): void
     {
-        $name1 = 'Test node 1';
-        $name2 = 'Test node 2';
-
-        $menuNode = $this->getMenuRepository()->findOneByName($name1);
+        $menuNode = $this->getMenuRepository()->findOneByName($this->name1);
         if (empty($menuNode)) {
             $menuNode = new Menu();
-            $menuNode->setName($name1);
+            $menuNode->setName($this->name1);
         }
 
-        $newNode = $this->getMenuRepository()->create($menuNode);
+        $newNode = $this->create($menuNode);
 
-        $menuNode2 = $this->getMenuRepository()->findOneByName($name2);
+        $menuNode2 = $this->getMenuRepository()->findOneByName($this->name2);
 
         if (!$menuNode2) {
             $menuNode2 = new Menu();
-            $menuNode2->setName($name2);
+            $menuNode2->setName($this->name2);
         }
 
-        $this->getMenuRepository()->create($menuNode2, $newNode);
+        $this->create($menuNode, $newNode);
         $this->getEntityManager()->refresh($newNode);
         $items = $this->getAllNodes();
 
@@ -54,4 +55,8 @@ class MenuCreateTest extends AbstractCreateDelete
         ]);
     }
 
+    protected function create(MenuInterface $menu, ?MenuInterface $parent = null): MenuInterface
+    {
+        return $this->getMenuRepository()->create($menu, $parent);
+    }
 }

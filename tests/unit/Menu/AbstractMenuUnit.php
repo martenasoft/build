@@ -20,7 +20,10 @@ abstract class AbstractMenuUnit extends AbstractSymfonyUnit
 
     protected function truncateMenuTable(): void
     {
-        $this->getEntityManager()->getConnection()->exec("TRUNCATE " . self::TABLE_NAME);
+        $sql = "SET FOREIGN_KEY_CHECKS = 0; ";
+        $sql .= "TRUNCATE ".self::TABLE_NAME .";";
+        $sql .= "SET FOREIGN_KEY_CHECKS = 1;";
+        $this->getEntityManager()->getConnection()->exec($sql);
     }
 
     protected function getMenuRepository(): MenuRepository
