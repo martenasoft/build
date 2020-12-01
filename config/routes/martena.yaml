@@ -6,3 +6,7 @@ menu:
   resource: '@MartenaSoftMenuBundle/Resources/config/routes/all.yaml'
 site:
   resource: '@MartenaSoftSiteBundle/Resources/config/routes/all.yaml'
+
+trash:
+  resource: '@MartenaSoftTrashBundle/Resources/config/routes/all.yaml'
+  prefix: /trash

@@ -4,7 +4,7 @@ COM=$@
 
 pathToProject=~/public_html/m_site
 
-cd pathToProject
+cd "${pathToProject}"
 
 eval $COM
 
