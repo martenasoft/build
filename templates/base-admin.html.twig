@@ -30,8 +30,9 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-
-        {{ render(controller('MartenaSoft\\Menu\\Controller\\MenuController::horizontal', {name:'test 1'})) }}
+        {{ render(controller('MartenaSoft\\Menu\\Controller\\MenuController::horizontal', {
+            request: app.request
+        })) }}
     </div>
     <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -45,8 +46,7 @@
     <div class="col-2">
         <div>
             {{ render(controller('MartenaSoft\\Menu\\Controller\\MenuController::vertical', {
-                request: app.request,
-                name:'test 1'
+                request: app.request
             })) }}
         </div>
     </div>
