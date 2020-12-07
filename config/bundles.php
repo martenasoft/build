@@ -13,6 +13,7 @@ return [
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     MartenaSoft\Common\MartenaSoftCommonBundle::class => ['all' => true],
+    MartenaSoft\Crud\MartenaSoftCrudBundle::class => ['all' => true],
     MartenaSoft\NestedSets\MartenaSoftNestedSetsBundle::class => ['all' => true],
     MartenaSoft\Menu\MartenaSoftMenuBundle::class => ['all' => true],
     MartenaSoft\Trash\MartenaSoftTrashBundle::class => ['all' => true],
