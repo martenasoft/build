@@ -10,3 +10,7 @@ site:
 trash:
   resource: '@MartenaSoftTrashBundle/Resources/config/routes/all.yaml'
   prefix: /trash
+
+media:
+  resource: '@MartenaSoftMediaBundle/Resources/config/routes/all.yaml'
+  prefix: /media
