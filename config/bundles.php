@@ -21,6 +21,7 @@ return [
     MartenaSoft\Seo\MartenaSoftSeoBundle::class => ['all' => true],
     MartenaSoft\Site\MartenaSoftSiteBundle::class => ['all' => true],
     MartenaSoft\Media\MartenaSoftMediaBundle::class => ['all' => true],
+    MartenaSoft\Maker\MartenaSoftMakerBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     DAMA\DoctrineTestBundle\DAMADoctrineTestBundle::class => ['test' => true],
     Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
