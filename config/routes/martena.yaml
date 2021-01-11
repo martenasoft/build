@@ -14,3 +14,7 @@ trash:
 media:
   resource: '@MartenaSoftMediaBundle/Resources/config/routes/all.yaml'
   prefix: /media
+
+maker:
+  resource: '@MartenaSoftMakerBundle/Resources/config/routes/all.yaml'
+  prefix: /maker

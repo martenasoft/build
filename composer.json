@@ -75,7 +75,8 @@
             "MartenaSoft\\Seo\\" : "martenasoft/seo/src/",
             "MartenaSoft\\Trash\\" : "martenasoft/trash/src/",
             "MartenaSoft\\Crud\\" : "martenasoft/crud/src/",
-            "MartenaSoft\\Media\\" : "martenasoft/media/src/"
+            "MartenaSoft\\Media\\" : "martenasoft/media/src/",
+            "MartenaSoft\\Maker\\" : "martenasoft/maker/src/"
         }
     },
     "autoload-dev": {
