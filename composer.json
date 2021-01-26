@@ -76,7 +76,8 @@
             "MartenaSoft\\Trash\\" : "martenasoft/trash/src/",
             "MartenaSoft\\Crud\\" : "martenasoft/crud/src/",
             "MartenaSoft\\Media\\" : "martenasoft/media/src/",
-            "MartenaSoft\\Maker\\" : "martenasoft/maker/src/"
+            "MartenaSoft\\Maker\\" : "martenasoft/maker/src/",
+            "MartenaSoft\\NewModule\\" : "martenasoft/newmodule/src/"
         }
     },
     "autoload-dev": {
